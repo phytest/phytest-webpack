@@ -4,15 +4,24 @@
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { store } from './store';
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { sync } from 'vuex-router-sync';
 {{/router}}
+import axios from 'axios';
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+{{#router}}
+/* eslint-disable no-unused-vars */
+const unsync = sync(store, router);
+{{/router}}
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   {{#router}}
   router,
   {{/router}}
