@@ -5,6 +5,9 @@ import HelloWorld from '@/components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{
 Vue.use(Router){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default new Router({
+    linkExactActiveClass: 'active',
+    linkActiveClass: 'active',
+    mode: 'history',
   routes: [
     {
       path: '/',
